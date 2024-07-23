@@ -1,0 +1,20 @@
+[
+  {
+    "id": 50073,
+    "movie_name": "The Grand Budapest Hotel",
+    "info": "A quirky and whimsical film about the adventures of a legendary concierge at a famous European hotel.",
+    "rating": 7.5
+  },
+  {
+    "id": 42235,
+    "movie_name": "The Shawshank Redemption",
+    "info": "A gripping drama that tells the story of a man's long journey to freedom after being wrongfully convicted of a crime.",
+    "rating": 8.5
+  },
+  {
+    "id": 32521,
+    "movie_name": "The Intouchables",
+    "info": "A heartwarming French film based on a true story about the unlikely friendship between a wealthy quadriplegic and his caregiver.",
+    "rating": 8.5
+  }
+]
