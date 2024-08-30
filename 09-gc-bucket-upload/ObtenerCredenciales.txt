@@ -1,0 +1,25 @@
+3. Navega a la Página de Credenciales
+En el menú de navegación izquierdo, ve a IAM & Admin y luego selecciona Service Accounts.
+
+Crea una Cuenta de Servicio
+Si no tienes una cuenta de servicio, puedes crear una nueva:
+
+Haz clic en Create Service Account.
+
+Proporciona un nombre y una descripción para la cuenta de servicio.
+
+Haz clic en Create and Continue.
+
+Asigna los roles necesarios para la cuenta de servicio (por ejemplo, Storage Admin para acceso completo a Cloud Storage).
+
+Haz clic en Done.
+----------------------------------------------------
+Genera una Llave para la Cuenta de Servicio
+En la lista de cuentas de servicio, haz clic en la cuenta de servicio que acabas de crear o en la que deseas generar las credenciales.
+
+Ve a la pestaña Keys.
+
+Haz clic en Add Key y luego en Create new key.
+
+Selecciona JSON como tipo de clave y haz clic en Create.
+
