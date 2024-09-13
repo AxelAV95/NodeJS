@@ -1,0 +1,186 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "GC Endpoints",
+    "collectionId": "295036f7-5257-40f6-b10a-20ed305e447a",
+    "dateExported": "2024-09-13T20:44:40.349Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7c778332-cfe8-4961-9bb1-ffd73b1b8d3e",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Crear usuario",
+            "url": "http://34.45.139.214:3000/api/user/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-09-13T20:10:36.716Z",
+            "modified": "2024-09-13T20:12:14.396Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Axel\",\n  \"apellidos\": \"Andrade Villalobos\",\n  \"cedula\": \"207380286\",\n  \"password\": \"Password1!\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "494264dd-8593-40cf-b129-48b9ad493c64",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Login usuario",
+            "url": "http://34.45.139.214:3000/api/user/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-09-13T20:12:24.645Z",
+            "modified": "2024-09-13T20:12:56.949Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cedula\": \"207380286\",\n  \"password\": \"Password1!\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "258591c1-53a0-455e-b776-ddd8ed8ba99c",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Obtener datos cuenta bancaria",
+            "url": "http://34.45.139.214:3001/api/account/2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-09-13T20:16:45.316Z",
+            "modified": "2024-09-13T20:17:49.985Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjIsImlhdCI6MTcyNjI1ODU0NSwiZXhwIjoxNzI2MzQ0OTQ1fQ.mSVhmjP2N2WBvnRcm-Ypc1XP2RLE8VD3XSeZRrNwU8M"
+            }
+        },
+        {
+            "_id": "02ae3856-e143-4157-9e57-b131e2976747",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Obtener datos de usuario",
+            "url": "http://34.45.139.214:3000/api/user/account/2",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-09-13T20:18:15.430Z",
+            "modified": "2024-09-13T20:19:10.792Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjIsImlhdCI6MTcyNjI1ODU0NSwiZXhwIjoxNzI2MzQ0OTQ1fQ.mSVhmjP2N2WBvnRcm-Ypc1XP2RLE8VD3XSeZRrNwU8M"
+            }
+        },
+        {
+            "_id": "4c2287b5-9c7c-46fa-a560-27021408411d",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Crear sobre",
+            "url": "http://34.45.139.214:3002/api/envelope",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-09-13T20:19:48.711Z",
+            "modified": "2024-09-13T20:28:53.790Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"sobrenombre\": \"Ahorros comida\",\n  \"sobremonto\": 0.0,\n  \"sobreCuentaId\": 1\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "e7d12810-e32e-48d3-897e-bf4536b52059",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Obtener total cuenta bancaria",
+            "url": "http://34.45.139.214:3001/api/account/summary/1",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-09-13T20:20:53.779Z",
+            "modified": "2024-09-13T20:21:12.781Z",
+            "headers": []
+        },
+        {
+            "_id": "9ac47a0f-a1d8-436d-957c-4bac87d63b72",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Actualizar monto cuenta bancaria",
+            "url": "http://34.45.139.214:3001/api/account/2",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2024-09-13T20:21:43.466Z",
+            "modified": "2024-09-13T20:22:26.221Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cuentaid\": 1,\n  \"amount\": 200000.00\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "03b77741-3344-4d03-a8aa-9f0eb01f00f8",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Cargar sobre",
+            "url": "http://34.45.139.214:3002/api/envelope/load",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-09-13T20:22:58.898Z",
+            "modified": "2024-09-13T20:24:57.864Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"sobreid\": 4,\n  \"cuentaid\": 1,\n  \"cantidadSobre\": 12000.00\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "ddac97bf-df6c-495d-9663-1b1627b082a5",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Obtener sobres de cuenta",
+            "url": "http://34.45.139.214:3002/api/envelope/1",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-09-13T20:25:44.831Z",
+            "modified": "2024-09-13T20:31:10.710Z",
+            "headers": []
+        },
+        {
+            "_id": "f6dc0392-c3d1-4896-8dfd-0d0ce776cf26",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Descargar a cuenta",
+            "url": "http://34.45.139.214:3002/api/envelope/transfer",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-09-13T20:27:12.520Z",
+            "modified": "2024-09-13T20:27:41.277Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"sobreid\": 4,\n  \"cuentaid\": 1,\n  \"cantidadSobre\": 2000.00\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "eb02f697-ede3-4e53-8627-0691faf30758",
+            "colId": "295036f7-5257-40f6-b10a-20ed305e447a",
+            "containerId": "",
+            "name": "Borrar sobre",
+            "url": "http://34.45.139.214:3002/api/envelope/remove",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2024-09-13T20:28:01.931Z",
+            "modified": "2024-09-13T20:30:02.883Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cuentaid\": 1,\n  \"sobreid\": 5\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "XeoXrkPcL_FYYaKXN9QO3YXHz6ZLDC2uIbn2-orXVSADPgtJTHLiqAtppR778h1naSFv-GoJ5xBAzPsk9pGRvA"
+}
