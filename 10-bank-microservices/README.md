@@ -70,3 +70,17 @@ sudo docker-compose logs db
 --------------------------------------------------
 - Hacer pruebas API con Postman u otras herramientas
 --------------------------------------------------
+
+Imágenes
+
+![image](https://github.com/user-attachments/assets/9cfa8435-beda-41df-944f-e629609d2080)
+![image](https://github.com/user-attachments/assets/061c7a85-8c30-44ab-b9aa-cf13cc7d370c)
+![image](https://github.com/user-attachments/assets/df83341d-364a-4295-90c7-99f8e5a00b74)
+![image](https://github.com/user-attachments/assets/40e666b9-b151-4515-a82f-550fbd92ec57)
+![image](https://github.com/user-attachments/assets/b55c50b8-01fe-4f62-802c-ca1eabd3a8b8)
+![image](https://github.com/user-attachments/assets/57a0fb61-a7dc-4c8a-bfdc-37e1f8f7418d)
+
+
+
+
+
