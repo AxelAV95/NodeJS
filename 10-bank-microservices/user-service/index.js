@@ -37,7 +37,7 @@ docker-compose pull
 const sequelize = require('./db');
 const express = require("express")
 const cors = require("cors")
-const port = process.env.PORT || 5000
+const port = process.env.PORT_U || 5000
 
 const app = express()
 app.use(express.json())

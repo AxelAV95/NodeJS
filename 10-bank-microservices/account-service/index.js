@@ -1,6 +1,6 @@
 const express = require("express")
 const cors = require("cors")
-const port = process.env.PORT || 5000
+const port = process.env.PORT_A || 5001
 const sequelize = require('./db');
 //npm install axios
 

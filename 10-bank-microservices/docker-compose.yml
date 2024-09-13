@@ -38,7 +38,7 @@ services:
       DB_DATABASE: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      PORT: ${PORT}
+      PORT: ${PORT_U}
       SECRET_KEY: ${SECRET_KEY}
       USER_MICROSERVICE_URL: ${USER_MICROSERVICE_URL}
       ACCOUNT_MICROSERVICE_URL: ${ACCOUNT_MICROSERVICE_URL}
@@ -52,13 +52,13 @@ services:
     build: ./envelope-service
     container_name: envelope-service
     ports:
-      - "3001:3001"
+      - "3002:3002"
     environment:
       DB_HOST: db
       DB_DATABASE: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      PORT: ${PORT}
+      PORT: ${PORT_E}
       SECRET_KEY: ${SECRET_KEY}
       USER_MICROSERVICE_URL: ${USER_MICROSERVICE_URL}
       ACCOUNT_MICROSERVICE_URL: ${ACCOUNT_MICROSERVICE_URL}
@@ -72,13 +72,13 @@ services:
     build: ./account-service
     container_name: account-service
     ports:
-      - "3002:3002"
+      - "3001:3001"
     environment:
       DB_HOST: db
       DB_DATABASE: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      PORT: ${PORT}
+      PORT: ${PORT_A}
       SECRET_KEY: ${SECRET_KEY}
       USER_MICROSERVICE_URL: ${USER_MICROSERVICE_URL}
       ACCOUNT_MICROSERVICE_URL: ${ACCOUNT_MICROSERVICE_URL}
