@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/user", require("./routes/user.routes"))
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log("Express server running...")
 })
 

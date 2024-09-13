@@ -13,8 +13,14 @@ RUN npm install
 # Copiar el resto de los archivos de la aplicación
 COPY . .
 
+# Copiar el script wait-for-it.sh al contenedor
+COPY wait-for-it.sh /usr/src/app/wait-for-it.sh
+
+# Hacer que el script wait-for-it.sh sea ejecutable
+RUN chmod +x /usr/src/app/wait-for-it.sh
+
 # Exponer el puerto en el que la aplicación escucha
 EXPOSE 3002
 
-# Comando para ejecutar la aplicación
-CMD ["node", "index.js"]
+# Comando para ejecutar la aplicación usando wait-for-it.sh
+CMD ["sh", "-c", "/usr/src/app/wait-for-it.sh db 3306 node index.js"]

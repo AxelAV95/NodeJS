@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/envelope", require("./routes/envelope.routes"))
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log("Express server running...")
 })
 

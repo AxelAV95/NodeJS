@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/account", require("./routes/account.routes"))
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log("Express server running...")
 })
 
