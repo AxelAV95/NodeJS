@@ -1,6 +1,6 @@
 const express = require("express")
 const cors = require("cors")
-const port = process.env.PORT_A || 5001
+const port = process.env.PORT_A || 3001
 const sequelize = require('./db');
 //npm install axios
 
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.use("/api/account", require("./routes/account.routes"))
 
 app.listen(port, () => {
-    console.log("Express server running...")
+    console.log(`Express server running on port ${port}`);
 })
 
 // Probar la conexión

@@ -37,7 +37,7 @@ docker-compose pull
 const sequelize = require('./db');
 const express = require("express")
 const cors = require("cors")
-const port = process.env.PORT_U || 5000
+const port = process.env.PORT_U || 3000
 
 const app = express()
 app.use(express.json())
@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
 app.use("/api/user", require("./routes/user.routes"))
 
 app.listen(port, () => {
-    console.log("Express server running...")
+    console.log(`Express server running on port ${port}`);
 })
 
 // Probar la conexión

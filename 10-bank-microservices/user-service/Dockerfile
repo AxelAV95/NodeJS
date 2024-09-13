@@ -1,6 +1,9 @@
 # Usar una imagen base de Node.js versión 20.12.1
 FROM node:20.12.1
 
+# Instalar netcat-openbsd
+RUN apt-get update && apt-get install -y netcat-openbsd
+
 # Establecer el directorio de trabajo en el contenedor
 WORKDIR /usr/src/app
 

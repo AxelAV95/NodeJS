@@ -2,7 +2,7 @@
 
 const express = require("express")
 const cors = require("cors")
-const port = process.env.PORT_E || 5002
+const port = process.env.PORT_E || 3002
 const sequelize = require('./db');
 
 
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 app.use("/api/envelope", require("./routes/envelope.routes"))
 
 app.listen(port, () => {
-    console.log("Express server running...")
+    console.log(`Express server running on port ${port}`);
 })
 
 // Probar la conexión
