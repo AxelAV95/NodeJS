@@ -1,0 +1,19 @@
+npm install sequelize mysql2
+npm install express
+npm install dotenv
+npm install cors
+npm install -D nodemon
+npm install bcrypt jsonwebtoken express-validator
+npm install cookie-parser
+
+
+npm install -g sequelize-cli
+npm install --save-dev sequelize-cli
+npx sequelize-cli init
+npx sequelize-cli model:generate --name Usuario --attributes nombre:string,email:string
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo
+npx sequelize-cli migration:generate --name agregar-telefono-a-usuario
+
+
+
