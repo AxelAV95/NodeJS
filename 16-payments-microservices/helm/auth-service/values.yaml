@@ -1,0 +1,24 @@
+replicaCount: 2
+image:
+  repository: myregistry/auth-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+config:
+  dbHost: mysql-service  # Nombre del servicio de MySQL en Kubernetes
+  dbUser: user
+  dbName: fitzone
+  jwtSecret: "your_jwt_secret"
+
+secrets:
+  dbPassword: ""         # Contraseña de la base de datos (se proporciona al instalar)
+  paypalClientId: ""     # Client ID de PayPal (se proporciona al instalar)
+  paypalClientSecret: "" # Client Secret de PayPal (se proporciona al instalar)
+
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
