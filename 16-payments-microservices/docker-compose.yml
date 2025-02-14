@@ -1,0 +1,119 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: fitzone
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: fitzone
+      JWT_SECRET: your_jwt_secret
+    depends_on:
+      - mysql
+
+  user-service:
+    build: ./user-service
+    container_name: user-service
+    ports:
+      - "3002:3002"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: fitzone
+      JWT_SECRET: your_jwt_secret
+    depends_on:
+      - mysql
+
+  subscription-service:
+    build: ./subscription-service
+    container_name: subscription-service
+    ports:
+      - "3003:3003"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: fitzone
+    depends_on:
+      - mysql
+
+  payment-service:
+    build: ./payment-service
+    container_name: payment-service
+    ports:
+      - "3004:3004"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: fitzone
+      PAYPAL_MODE: sandbox
+      PAYPAL_CLIENT_ID: your_paypal_client_id
+      PAYPAL_CLIENT_SECRET: your_paypal_client_secret
+    depends_on:
+      - mysql
+
+  discount-service:
+    build: ./discount-service
+    container_name: discount-service
+    ports:
+      - "3005:3005"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: fitzone
+      JWT_SECRET: your_jwt_secret
+    depends_on:
+      - mysql
+
+  admin-service:
+    build: ./admin-service
+    container_name: admin-service
+    ports:
+      - "3006:3006"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: fitzone
+      JWT_SECRET: your_jwt_secret
+    depends_on:
+      - mysql
+
+  paypal-subscription-service:
+    build: ./paypal-subscription-service
+    container_name: paypal-subscription-service
+    ports:
+      - "3007:3007"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: fitzone
+      PAYPAL_MODE: sandbox
+      PAYPAL_CLIENT_ID: your_paypal_client_id
+      PAYPAL_CLIENT_SECRET: your_paypal_client_secret
+    depends_on:
+      - mysql
+  
+volumes:
+  mysql-data:
