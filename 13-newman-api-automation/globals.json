@@ -1,0 +1,15 @@
+{
+	"id": "d3bbcd83-27c7-41e8-8ecd-d60bbb70f0cd",
+	"values": [
+		{
+			"key": "server",
+			"value": "http://127.0.0.1:8001",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-10-01T00:22:44.669Z",
+	"_postman_exported_using": "Postman/11.10.0"
+}
