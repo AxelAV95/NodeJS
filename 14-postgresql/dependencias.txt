@@ -1,0 +1,1 @@
+npm install express sequelize pg pg-hstore dotenv sequelize-cli
