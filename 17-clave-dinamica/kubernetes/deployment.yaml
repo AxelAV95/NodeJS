@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-api-deployment
+  labels:
+    app: auth-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-api
+  template:
+    metadata:
+      labels:
+        app: auth-api
+    spec:
+      containers:
+      - name: auth-api
+        image: auth-api:latest  # Cambia esto por tu imagen en un registro (ej. Docker Hub)
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          value: mysql-service  # Nombre del servicio MySQL en Kubernetes
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: auth-api-secrets
+              key: db-user
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: auth-api-secrets
+              key: db-password
+        - name: DB_DATABASE
+          value: auth_db
+        - name: PORT
+          value: "3000"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: auth-api-secrets
+              key: jwt-secret

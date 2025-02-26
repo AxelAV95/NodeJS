@@ -1,0 +1,5 @@
+apiVersion: v2
+name: auth-api
+description: Helm chart para la API de autenticación con claves dinámicas
+version: 0.1.0
+appVersion: "1.0"

@@ -1,0 +1,21 @@
+replicaCount: 2
+
+image:
+  repository: auth-api
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
+
+env:
+  dbHost: mysql-service
+  dbDatabase: auth_db
+  port: "3000"
+
+secrets:
+  dbUser: "tu_usuario"
+  dbPassword: "tu_contraseña"
+  jwtSecret: "tu_clave_secreta"
