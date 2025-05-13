@@ -181,6 +181,81 @@ app.use(helmet());
 
 ## ✅ Checkpoint 5: Primer módulo - Users
 
+¡Bien visto! Vamos a crear ahora el modelo `User` correspondiente al módulo `/api/v1/users`, que fue omitido en el primer checkpoint. Lo construiremos usando **Sequelize**, en línea con el resto de la arquitectura del proyecto.
+
+---
+
+###  `/api/v1/users/model.js`
+
+```js
+const { DataTypes } = require('sequelize');
+const sequelize = require('../../../config/db');
+
+const User = sequelize.define('User', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  username: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+    unique: true
+  },
+  email: {
+    type: DataTypes.STRING(100),
+    allowNull: false,
+    unique: true,
+    validate: {
+      isEmail: true
+    }
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  role: {
+    type: DataTypes.ENUM('admin', 'user'),
+    defaultValue: 'user'
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW
+  }
+}, {
+  tableName: 'users',
+  timestamps: false
+});
+
+module.exports = User;
+```
+
+---
+
+### ⚠️ Extra: sincronizar modelos (en desarrollo)
+
+Puedes sincronizar temporalmente los modelos con Sequelize (sin migrations aún):
+
+```js
+const sequelize = require('./config/db');
+const User = require('./api/v1/users/model');
+const Post = require('./api/v1/posts/model');
+
+(async () => {
+  try {
+    await sequelize.sync({ alter: true }); // solo en desarrollo
+    console.log('📦 Modelos sincronizados');
+  } catch (err) {
+    console.error('❌ Error al sincronizar modelos:', err);
+  }
+})();
+```
+
+⚠️ *No uses `.sync({ force: true })` en producción, ya que elimina tablas.*
+
+
+
+
 ### `/api/v1/users/routes.js`
 
 ```js
