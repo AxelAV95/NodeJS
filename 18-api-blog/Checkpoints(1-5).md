@@ -169,6 +169,25 @@ module.exports = cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 });
 ```
+#### `/middlewares/errorHandler.js`
+
+```js
+module.exports = (err, req, res, next) => {
+  console.error('❌ Error:', err);
+
+  const status = err.status || 500;
+  const message = err.message || 'Error interno del servidor';
+
+  res.status(status).json({
+    error: {
+      message,
+      status
+    }
+  });
+};
+```
+
+
 
 #### Seguridad con Helmet
 
@@ -177,7 +196,31 @@ const helmet = require('helmet');
 app.use(helmet());
 ```
 
----
+```js
+const express = require('express');
+const app = express();
+const helmet = require('helmet');
+const cors = require('./config/cors');
+const rateLimiter = require('./middlewares/rateLimiter');
+const errorHandler = require('./middlewares/errorHandler');
+
+app.use(helmet()); // ← Aquí se agrega helmet
+app.use(express.json());
+app.use(cors);
+app.use(rateLimiter);
+
+app.use('/uploads', express.static('uploads'));
+
+// Rutas
+app.use('/api/v1/users', require('./api/v1/users/routes'));
+app.use('/api/v1/posts', require('./api/v1/posts/routes'));
+
+app.use(errorHandler); // ← Siempre al final
+
+module.exports = app;
+```
+
+
 
 ## ✅ Checkpoint 5: Primer módulo - Users
 
@@ -185,7 +228,7 @@ app.use(helmet());
 
 ---
 
-###  `/api/v1/users/model.js`
+####  `/api/v1/users/model.js`
 
 ```js
 const { DataTypes } = require('sequelize');
@@ -232,7 +275,7 @@ module.exports = User;
 
 ---
 
-### ⚠️ Extra: sincronizar modelos (en desarrollo)
+#### ⚠️ Extra: sincronizar modelos (en desarrollo)
 
 Puedes sincronizar temporalmente los modelos con Sequelize (sin migrations aún):
 
@@ -256,7 +299,7 @@ const Post = require('./api/v1/posts/model');
 
 
 
-### `/api/v1/users/routes.js`
+#### `/api/v1/users/routes.js`
 
 ```js
 const express = require('express');
@@ -270,7 +313,7 @@ router.post('/login', validate('login'), controller.login);
 module.exports = router;
 ```
 
-### `/api/v1/users/controller.js`
+#### `/api/v1/users/controller.js`
 
 ```js
 const service = require('./service');
@@ -286,7 +329,7 @@ exports.login = async (req, res) => {
 };
 ```
 
-### `/api/v1/users/service.js`
+#### `/api/v1/users/service.js`
 
 ```js
 const bcrypt = require('bcrypt');
@@ -309,7 +352,7 @@ exports.login = async ({ email, password }) => {
 };
 ```
 
-### `/api/v1/users/validator.js`
+#### `/api/v1/users/validator.js`
 
 ```js
 const Joi = require('joi');
@@ -327,7 +370,7 @@ exports.schemas = {
 };
 ```
 
-### `/middlewares/validator.js`
+#### `/middlewares/validator.js`
 
 ```js
 const { schemas } = require('../api/v1/users/validator');
