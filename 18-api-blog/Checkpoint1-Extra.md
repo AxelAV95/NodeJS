@@ -1,4 +1,4 @@
-## ✅ Checkpoint 1.1: MySQL + Redis + phpMyAdmin en Docker
+## ✅ Checkpoint 1 - Extra: MySQL + Redis + phpMyAdmin en Docker
 
 ---
 
