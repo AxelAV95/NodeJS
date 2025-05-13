@@ -148,4 +148,90 @@ Tu API ahora puede:
 
 ---
 
+Perfecto. Vamos a mejorar la seguridad y la experiencia del usuario agregando una **verificación de tipo y tamaño de archivo** antes de subir imágenes a S3.
+
+Esto previene ataques y errores comunes (como subir archivos no válidos o demasiado grandes).
+
+---
+
+## ✅ Mejoras a la subida a S3: tipo y tamaño de archivo
+
+---
+
+### 📁 Archivo: `/api/v1/posts/upload.s3.js` (actualizado)
+
+Agrega la verificación del tamaño y tipo MIME justo en la configuración de `multer`.
+
+```js
+const multer = require('multer');
+const multerS3 = require('multer-s3');
+const path = require('path');
+const s3 = require('../../../config/s3');
+
+const MAX_SIZE_MB = 5;
+
+const upload = multer({
+  storage: multerS3({
+    s3,
+    bucket: process.env.AWS_BUCKET_NAME,
+    contentType: multerS3.AUTO_CONTENT_TYPE,
+    acl: 'public-read',
+    key: (req, file, cb) => {
+      const ext = path.extname(file.originalname);
+      const filename = `posts/${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
+      cb(null, filename);
+    }
+  }),
+  limits: {
+    fileSize: MAX_SIZE_MB * 1024 * 1024 // e.g. 5MB
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    if (!allowedTypes.includes(file.mimetype)) {
+      return cb(new Error('Solo se permiten imágenes JPG o PNG'));
+    }
+    cb(null, true);
+  }
+});
+
+module.exports = upload;
+```
+
+---
+
+### 🛡️ Extra: Manejo de errores de subida en el controlador
+
+Actualiza el `controller.js` para atrapar errores específicos de `multer`:
+
+```js
+exports.create = async (req, res) => {
+  try {
+    const { title, content } = req.body;
+    const imageUrl = req.file?.location;
+    const post = await service.createPost({ title, content }, req.user.id, imageUrl);
+    res.status(201).json(post);
+  } catch (err) {
+    // Manejo explícito de errores de Multer
+    if (err instanceof multer.MulterError) {
+      return res.status(400).json({ error: `Error al subir archivo: ${err.message}` });
+    }
+    res.status(500).json({ error: err.message });
+  }
+};
+```
+
+> 📌 También puedes aplicar esta validación en el almacenamiento local, si decides mantener ambas opciones disponibles.
+
+---
+
+Con esto, se asegura que:
+
+* Solo imágenes `JPG` y `PNG` sean aceptadas
+* El tamaño no supere los **5 MB**
+* Se informe claramente al usuario en caso de error
+
+---
+
+
+
 
