@@ -1,6 +1,4 @@
 
----
-
 ## ✅ Checkpoint Extra: Subida de imágenes a **AWS S3**
 
 ---
