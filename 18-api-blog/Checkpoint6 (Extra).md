@@ -1,4 +1,3 @@
-Perfecto. Vamos con el **Checkpoint para subir imágenes a AWS S3** desde tu API de Posts, como una alternativa (o complemento) al almacenamiento local. Usaremos el SDK oficial de AWS y Multer-S3 para manejar la subida directamente a un bucket.
 
 ---
 
