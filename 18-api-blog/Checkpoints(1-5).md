@@ -219,8 +219,28 @@ app.use(errorHandler); // ← Siempre al final
 
 module.exports = app;
 ```
+#### Configuración inicial de server.js
 
+```js
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config(); // Carga .env
 
+const app = require('./src/app'); // Tu aplicación Express
+
+// Asegura que la carpeta para subir imágenes exista
+const dir = path.join(__dirname, 'uploads/posts');
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir, { recursive: true });
+}
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+});
+```
+---
 
 ## ✅ Checkpoint 5: Primer módulo - Users
 
