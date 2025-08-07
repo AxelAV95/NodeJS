@@ -1,0 +1,64 @@
+[
+  {
+    "timestamp": "2025-07-01T23:20:31.752Z",
+    "system": {
+      "platform": "win32",
+      "architecture": "x64",
+      "hostname": "AxelAV",
+      "uptime": 266839.984,
+      "loadAverage": [
+        0,
+        0,
+        0
+      ],
+      "totalMemory": 8340582400,
+      "freeMemory": 1295724544,
+      "cpuCount": 4
+    },
+    "process": {
+      "pid": 9332,
+      "uptime": 3.2627795,
+      "memoryUsage": {
+        "rss": "41.33 MB",
+        "heapTotal": "7.28 MB",
+        "heapUsed": "4.99 MB",
+        "external": "1.74 MB"
+      },
+      "cpuUsage": {
+        "user": 171000,
+        "system": 156000
+      }
+    }
+  },
+  {
+    "timestamp": "2025-07-01T23:25:00.039Z",
+    "system": {
+      "platform": "win32",
+      "architecture": "x64",
+      "hostname": "AxelAV",
+      "uptime": 267108.265,
+      "loadAverage": [
+        0,
+        0,
+        0
+      ],
+      "totalMemory": 8340582400,
+      "freeMemory": 1693388800,
+      "cpuCount": 4
+    },
+    "process": {
+      "pid": 9332,
+      "uptime": 271.5484064,
+      "memoryUsage": {
+        "rss": "42.2 MB",
+        "heapTotal": "6.28 MB",
+        "heapUsed": "4.83 MB",
+        "external": "1.74 MB"
+      },
+      "cpuUsage": {
+        "user": 203000,
+        "system": 187000
+      }
+    }
+  }
+]

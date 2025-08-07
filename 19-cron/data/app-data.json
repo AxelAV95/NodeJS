@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Juan Pérez",
+      "email": "juan@email.com"
+    },
+    {
+      "id": 2,
+      "name": "María García",
+      "email": "maria@email.com"
+    },
+    {
+      "id": 3,
+      "name": "Carlos López",
+      "email": "carlos@email.com"
+    }
+  ],
+  "settings": {
+    "theme": "dark",
+    "language": "es",
+    "notifications": true
+  },
+  "lastUpdated": "2025-07-01T23:18:36.217Z"
+}
